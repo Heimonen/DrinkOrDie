@@ -1,0 +1,21 @@
+name: DrinkOrDie
+main: com.sanelith.mod.DrinkOrDie
+version: 1
+depend: [Spout]
+Storage: Database
+commands:
+  thirstperiod:
+    description: Set the thirst period.
+    usage: /<command> [value]
+    permission: DrinkOrDie.thirstperiod
+    permission-message: You don't have <permission>
+  restorehydration:
+    description: Restores your hydration level to max value.
+    usage: /<command>
+    permission: DrinkOrDie.restorehydration
+    permission-message: You don't have permission <permission>
+  drinkordieenabled:
+    description: Enables or disables this mod.
+    usage: /<command> [value]
+    permission: DrinkOrDie.drinkordieenabled
+    permission-message: You don't have permission <permission>

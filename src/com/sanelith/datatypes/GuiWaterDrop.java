@@ -50,10 +50,10 @@ public class GuiWaterDrop {
 	public void setType(int type) {
 		switch (type) {
 		case GuiWaterDrop.WATER_FILLED:
-			texture.setUrl("https://dl.dropbox.com/u/44954718/myWaterDrop.png");
+			texture.setUrl("images/myWaterDrop.png");
 			break;
 		case GuiWaterDrop.WATER_DEPLETED:
-			texture.setUrl("https://dl.dropbox.com/u/44954718/myWaterDropDepleted.png");
+			texture.setUrl("images/myWaterDropDepleted.png");
 			break;
 		}
 	}

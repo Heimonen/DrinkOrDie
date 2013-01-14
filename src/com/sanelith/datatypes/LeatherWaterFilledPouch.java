@@ -43,7 +43,7 @@ public class LeatherWaterFilledPouch extends GenericCustomItem {
 
 	public LeatherWaterFilledPouch(Plugin plugin, String name, String texture) {
 		super(plugin, "Water Leather Pouch",
-				"https://dl.dropbox.com/u/44954718/myWaterPouchWater5.png");
+				"images/myWaterPouchWater5.png");
 		this.plugin = plugin;
 	}
 

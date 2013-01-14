@@ -41,7 +41,7 @@ public class LeatherPouch extends GenericCustomItem {
 
 	public LeatherPouch(Plugin plugin, String name, String texture) {
 		super(plugin, LeatherPouch.name,
-				"https://dl.dropbox.com/u/44954718/mywaterpouch2.png");
+				"images/mywaterpouch2.png");
 		this.setStackable(false);
 		this.plugin = plugin;
 	}

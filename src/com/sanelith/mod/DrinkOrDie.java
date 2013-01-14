@@ -91,15 +91,11 @@ public class DrinkOrDie extends JavaPlugin {
 		boolean modEnabled = Boolean.valueOf(tempEnabled);
 
 		// Initializing custom items
-		SpoutManager.getFileManager().addToPreLoginCache(this,
-				"https://dl.dropbox.com/u/44954718/mywaterpouch2.png");
-		SpoutManager.getFileManager().addToPreLoginCache(this,
-				"https://dl.dropbox.com/u/44954718/myWaterPouchWater5.png");
-		SpoutManager.getFileManager().addToPreLoginCache(this,
-				"https://dl.dropbox.com/u/44954718/myWaterDrop.png");
-		SpoutManager.getFileManager().addToPreLoginCache(this,
-				"https://dl.dropbox.com/u/44954718/myWaterDropDepleted.png");
-
+		this.saveResource("images/myWaterDrop.png", true);
+		this.saveResource("images/myWaterDropDepleted.png", true);
+		this.saveResource("images/mywaterpouch2.png", true);
+		this.saveResource("images/myWaterPouchWater5.png", true);
+		
 		LeatherWaterFilledPouch waterPouch = new LeatherWaterFilledPouch(this,
 				"", "");
 		SpoutItemStack leatherWaterStack = new SpoutItemStack(waterPouch, 1);

@@ -1,15 +1,10 @@
 package com.sanelith.datatypes;
 
 import org.bukkit.Bukkit;
-import org.bukkit.plugin.java.JavaPlugin;
-import org.getspout.spout.Spout;
 import org.getspout.spoutapi.gui.ContainerType;
 import org.getspout.spoutapi.gui.GenericContainer;
-import org.getspout.spoutapi.gui.GenericScreen;
 import org.getspout.spoutapi.gui.WidgetAnchor;
 import org.getspout.spoutapi.player.SpoutPlayer;
-import org.getspout.spoutapi.plugin.SpoutPlugin;
-
 import com.sanelith.mod.DrinkOrDie;
 
 /**

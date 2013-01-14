@@ -1,9 +1,6 @@
 package com.sanelith.mod;
 
-import org.bukkit.plugin.java.JavaPlugin;
-import org.getspout.spoutapi.gui.GenericScreen;
 import org.getspout.spoutapi.player.SpoutPlayer;
-
 import com.sanelith.datatypes.GuiThirstBar;
 
 /**
@@ -36,7 +33,6 @@ public class SurvivalGUI {
 	private GuiThirstBar thirstBar;
 
 	public SurvivalGUI(SpoutPlayer player) {
-		GenericScreen screen = (GenericScreen) player.getMainScreen();
 		thirstBar = new GuiThirstBar(player.getName());
 	}
 

@@ -43,15 +43,13 @@ import com.sanelith.datatypes.SurvivalPlayer;
  * 
  */
 public class PlayerListener implements Listener {
-	private JavaPlugin plugin;
 	private long thirstPeriod;
 	private SurvivalPlayerThread survivalPlayerThread;
 	private HashMap<String, Integer> playerTaskMap = new HashMap<String, Integer>();
 
 	public static HashMap<String, SurvivalPlayer> playerMap = null;
 
-	public PlayerListener(JavaPlugin plugin, long thirstPeriod) {
-		this.plugin = plugin;
+	public PlayerListener(long thirstPeriod) {
 		this.thirstPeriod = thirstPeriod;
 	}
 
@@ -65,10 +63,9 @@ public class PlayerListener implements Listener {
 		Player loggedInPlayer = event.getPlayer();
 
 		// Attempt to deserialize
-		SurvivalPlayer tempSurvivalPlayer = (SurvivalPlayer) this.plugin
+		SurvivalPlayer tempSurvivalPlayer = (SurvivalPlayer) DrinkOrDie.instance
 				.getConfig().get(loggedInPlayer.getName());
-		SurvivalPlayer survivalPlayer = new SurvivalPlayer(this.plugin,
-				loggedInPlayer);
+		SurvivalPlayer survivalPlayer = new SurvivalPlayer(loggedInPlayer);
 		if (tempSurvivalPlayer != null) {
 			survivalPlayer.setThirst(tempSurvivalPlayer.getThirst());
 			survivalPlayer.setStamina(tempSurvivalPlayer.getStamina());
@@ -76,11 +73,11 @@ public class PlayerListener implements Listener {
 		playerMap.put(survivalPlayer.getName(), survivalPlayer);
 		this.survivalPlayerThread = new SurvivalPlayerThread(survivalPlayer,
 				survivalPlayer.gui);
-		BukkitTask task = plugin
+		BukkitTask task = DrinkOrDie.instance
 				.getServer()
 				.getScheduler()
-				.runTaskTimerAsynchronously(plugin, this.survivalPlayerThread,
-						60L, this.thirstPeriod);
+				.runTaskTimerAsynchronously(DrinkOrDie.instance,
+						this.survivalPlayerThread, 60L, this.thirstPeriod);
 		playerTaskMap.put(survivalPlayer.getName(), task.getTaskId());
 	}
 

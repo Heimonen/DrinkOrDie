@@ -10,6 +10,7 @@ import org.getspout.spoutapi.inventory.SpoutItemStack;
 import org.getspout.spoutapi.material.item.GenericCustomItem;
 import org.getspout.spoutapi.player.SpoutPlayer;
 
+import com.sanelith.mod.DrinkOrDie;
 import com.sanelith.mod.PlayerListener;
 
 /**
@@ -39,12 +40,10 @@ import com.sanelith.mod.PlayerListener;
 public class LeatherWaterFilledPouch extends GenericCustomItem {
 
 	private final int waterRestored = 6;
-	private Plugin plugin;
 
-	public LeatherWaterFilledPouch(Plugin plugin, String name, String texture) {
-		super(plugin, "Water Leather Pouch",
+	public LeatherWaterFilledPouch(String name, String texture) {
+		super(DrinkOrDie.instance, "Water Leather Pouch",
 				"images/myWaterPouchWater5.png");
-		this.plugin = plugin;
 	}
 
 	// Even though the method is deprecated there is currently no other way to
@@ -53,7 +52,8 @@ public class LeatherWaterFilledPouch extends GenericCustomItem {
 	@Override
 	public boolean onItemInteract(SpoutPlayer player, SpoutBlock block,
 			BlockFace face) {
-		String tempEnabled = plugin.getConfig().getString("modEnabled");
+		String tempEnabled = DrinkOrDie.instance.getConfig().getString(
+				"modEnabled");
 		boolean modEnabled = Boolean.valueOf(tempEnabled);
 		if (modEnabled) {
 			int playerThirst = (int) PlayerListener.playerMap.get(
@@ -71,10 +71,8 @@ public class LeatherWaterFilledPouch extends GenericCustomItem {
 
 					ItemStack hand = player.getItemInHand();
 					hand.setAmount(hand.getAmount() - 1);
-					player.getInventory()
-							.addItem(
-									new SpoutItemStack(new LeatherPouch(plugin,
-											"", "")));
+					player.getInventory().addItem(
+							new SpoutItemStack(new LeatherPouch("", "")));
 					player.updateInventory();
 					if (hand.getAmount() <= 0) {
 						player.getInventory().setItemInHand(null);

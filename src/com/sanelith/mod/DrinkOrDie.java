@@ -96,7 +96,7 @@ public class DrinkOrDie extends JavaPlugin {
 		this.saveResource("images/mywaterpouch2.png", true);
 		this.saveResource("images/myWaterPouchWater5.png", true);
 		
-		LeatherWaterFilledPouch waterPouch = new LeatherWaterFilledPouch(this,
+		LeatherWaterFilledPouch waterPouch = new LeatherWaterFilledPouch(
 				"", "");
 		SpoutItemStack leatherWaterStack = new SpoutItemStack(waterPouch, 1);
 		SpoutShapedRecipe leatherWaterPouchRecipe = new SpoutShapedRecipe(
@@ -107,7 +107,7 @@ public class DrinkOrDie extends JavaPlugin {
 		SpoutManager.getMaterialManager().registerSpoutRecipe(
 				leatherWaterPouchRecipe);
 
-		LeatherPouch leatherPouch = new LeatherPouch(this, "", "");
+		LeatherPouch leatherPouch = new LeatherPouch("", "");
 		SpoutItemStack leatherPouchStack = new SpoutItemStack(leatherPouch, 1);
 		SpoutShapedRecipe leatherPouchRecipe = new SpoutShapedRecipe(
 				leatherPouchStack);
@@ -116,7 +116,7 @@ public class DrinkOrDie extends JavaPlugin {
 		SpoutManager.getMaterialManager().registerSpoutRecipe(
 				leatherPouchRecipe);
 		if (modEnabled) {
-			playerListener = new PlayerListener(this, thirstPeriod);
+			playerListener = new PlayerListener(thirstPeriod);
 			this.getServer().getPluginManager()
 					.registerEvents(playerListener, this);
 		}

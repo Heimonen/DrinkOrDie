@@ -1,10 +1,16 @@
 package com.sanelith.datatypes;
 
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.getspout.spout.Spout;
 import org.getspout.spoutapi.gui.ContainerType;
 import org.getspout.spoutapi.gui.GenericContainer;
 import org.getspout.spoutapi.gui.GenericScreen;
 import org.getspout.spoutapi.gui.WidgetAnchor;
+import org.getspout.spoutapi.player.SpoutPlayer;
+import org.getspout.spoutapi.plugin.SpoutPlugin;
+
+import com.sanelith.mod.DrinkOrDie;
 
 /**
  * 
@@ -32,13 +38,11 @@ import org.getspout.spoutapi.gui.WidgetAnchor;
 public class GuiThirstBar {
 
 	private GenericContainer container;
-	private GenericScreen screen;
 	private GuiWaterDrop[] waterList;
 
-	public GuiThirstBar(GenericScreen screen, JavaPlugin plugin) {
+	public GuiThirstBar(String playerName) {
 		this.waterList = new GuiWaterDrop[10];
 		this.container = new GenericContainer();
-		this.screen = screen;
 		this.container.setAnchor(WidgetAnchor.BOTTOM_CENTER);
 		this.container.setLayout(ContainerType.HORIZONTAL);
 		this.container.setWidth(89);
@@ -49,7 +53,7 @@ public class GuiThirstBar {
 			waterList[i] = new GuiWaterDrop(container,
 					GuiWaterDrop.WATER_FILLED);
 		}
-		this.screen.attachWidget(plugin, this.container);
+		((SpoutPlayer) Bukkit.getPlayer(playerName)).getCurrentScreen().attachWidget(DrinkOrDie.instance, this.container);
 	}
 
 	/**

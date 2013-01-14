@@ -35,9 +35,9 @@ public class SurvivalGUI {
 
 	private GuiThirstBar thirstBar;
 
-	public SurvivalGUI(SpoutPlayer player, JavaPlugin plugin) {
+	public SurvivalGUI(SpoutPlayer player) {
 		GenericScreen screen = (GenericScreen) player.getMainScreen();
-		thirstBar = new GuiThirstBar(screen, plugin);
+		thirstBar = new GuiThirstBar(player.getName());
 	}
 
 	public void updateDamage(float damage) {

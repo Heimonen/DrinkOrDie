@@ -54,9 +54,9 @@ public class SurvivalPlayer implements ConfigurationSerializable {
 	private boolean takingDamage = false;
 	public SurvivalGUI gui;
 
-	public SurvivalPlayer(JavaPlugin plugin, Player player) {
+	public SurvivalPlayer(Player player) {
 		this.playerName = player.getName();
-		this.gui = new SurvivalGUI(SpoutManager.getPlayer(player), plugin);
+		this.gui = new SurvivalGUI(SpoutManager.getPlayer(player));
 	}
 
 	public SurvivalPlayer(ConfigurationSection map) {
@@ -70,7 +70,7 @@ public class SurvivalPlayer implements ConfigurationSerializable {
 				&& DrinkOrDie.instance.getServer().getPlayerExact(
 						this.playerName) != null) {
 			this.gui = new SurvivalGUI(SpoutManager.getPlayer(Bukkit
-					.getPlayer(this.playerName)), DrinkOrDie.instance);
+					.getPlayer(this.playerName)));
 		}
 	}
 
